@@ -705,15 +705,14 @@ function addKnownCharacter(charName, charDescription, charRelation, charImagePro
     }
 }
 
-function editKnownCharacter(oldfunction editKnownCharacter(oldCharName, charName, charDescription, charRelation, charImagePrompt) {
+function editKnownCharacter(oldCharName, charName, charDescription, charRelation, charImagePrompt) {
     for (const char of character.knownCharacters) {
         if (char.name === oldCharName) {
             char.name = charName;
             char.description = charDescription;
             char.relation = charRelation;
             char.image_prompt = charImagePrompt;
-            gameText.innerHTML += `<p class="gm-response">ГМ изменил персонажа: ${oldCharName} на ${charName}.</p>`;
-            updateCharactersList();
+            gameText.innerHTML += `<p class="gm-response">ГМ изменил персонажа: ${oldCharName} на ${charName}.</        updateCharactersList();
             return;
         }
     }
@@ -1146,7 +1145,7 @@ async function publishScenario() {
 
     try {
         showLoadingIndicator();
-        const response = await fetch(`https://api.github.com/repos/YourUsername/AIStoryRP_New_Era/contents/scenarios/${scenarioData.id}.json`, {
+        const response = await fetch(`https://api.github.com/repos/GardenXas/Test-Workshop/contents/scenarios/${scenarioData.id}.json`, {
             method: 'PUT',
             headers: {
                 'Authorization': `Bearer ${githubToken}`,
@@ -1188,7 +1187,7 @@ createScenarioModal.querySelector('.modal-content').appendChild(publishScenarioB
 async function loadRemoteScenarios() {
     try {
         showLoadingIndicator();
-        const response = await fetch(`https://api.github.com/repos/YourUsername/AIStoryRP_New_Era/contents/scenarios`, {
+        const response = await fetch(`https://api.github.com/repos/GardenXas/Test-Workshop/contents/scenarios`, {
             headers: {
                  'Authorization': `Bearer ${githubToken}`,
                 'Content-Type': 'application/json'
@@ -1223,7 +1222,7 @@ async function loadRemoteScenarios() {
 async function downloadRemoteScenario(fileName) {
     try {
         showLoadingIndicator();
-        const response = await fetch(`https://api.github.com/repos/YourUsername/AIStoryRP_New_Era/contents/scenarios/${fileName}`, {
+        const response = await fetch(`https://api.github.com/repos/GardenXas/Test-Workshop/contents/scenarios/${fileName}`, {
            headers: {
                  'Authorization': `Bearer ${githubToken}`,
                 'Content-Type': 'application/json'
